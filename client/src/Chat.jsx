@@ -37,7 +37,6 @@ export default function Chat() {
       } else if ("text" in messageData) {
         // Update messages if sender matches selected user or current user
         if (messageData.sender === selectedUserId) {
-          console.log(messageData, selectedUserId);
           setMessages((prev) => [...prev, { ...messageData }]);
         }
       }
@@ -64,12 +63,16 @@ export default function Chat() {
 
   // Effect hook to scroll to the bottom when new messages are received
   useEffect(() => {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
   }, [messages]);
 
   // Effect hook to fetch messages when a user is selected
   useEffect(() => {
-    console.log(selectedUserId);
     if (selectedUserId) {
       // Fetch messages for the selected user
       axios.get("/messages/" + selectedUserId).then((res) => {
