@@ -1,0 +1,24 @@
+/* Modified scrollbar styling with thinner appearance */
+.scrollbar-custom::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px #000; /* Reduced shadow size */
+    border-radius: 8px; /* Reduced border-radius */
+    background-color: #FFF;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px; /* Reduced width */
+    background-color: #FFF;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    border-radius: 8px; /* Reduced border-radius */
+    background-color: #3b82f6;
+    background-image: -webkit-linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.4) 50%,
+      transparent,
+      transparent
+    );
+  }
+  
